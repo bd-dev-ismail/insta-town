@@ -52,7 +52,7 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-  console.log(post.comments);
+  // console.log(post.comments);
     const image = post.image;
     const userImage = post.userImage;
     const div = document.createElement( "article" );
@@ -151,17 +151,20 @@ const showPosts = (posts) => {
 
 const displayLikedPosts = () => {
     const likedPosts = getLikedPosts();
+    //clear previouly added liked post
+    document.getElementById("liked").textContent = '';
     likedPosts.forEach((post) => {
         const div = createPost(post);
-        document.getElementById( "liked" ).appendChild(div);
+        document.getElementById("liked").appendChild(div);
     });
 };
 
 const displayReportedPosts = () => {
     const reportedPosts = getReportedPosts();
-    posts.forEach((post) => {
-        const div = createPost(post);
-        document.getElementById( "reported" ).appendChild(div);
+    document.getElementById("reported").textContent = '';
+    reportedPosts.forEach((post) => {
+      const div = createPost(post);
+      document.getElementById("reported").appendChild(div);
     });
 };
 
